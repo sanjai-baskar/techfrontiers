@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFrontiers 2026 | Intercollege Technical Meet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6C63FF;
+            --secondary: #4A44C6;
+            --accent: #FF6584;
+            --dark: #1A1A2E;
+            --light: #FFFFFF;
+            --gray: #8C8CA1;
+            --light-gray: #F5F7FF;
+            --gradient: linear-gradient(135deg, #6C63FF, #4A44C6);
+            --gradient-accent: linear-gradient(135deg, #FF6584, #FF4D6D);
+            --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 10px 30px rgba(108, 99, 255, 0.15);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: transparent;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            background: var(--gradient);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .register-btn {
+            background: var(--gradient-accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(255, 101, 132, 0.3);
+        }
+
+        .register-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(255, 101, 132, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+        }
+
+        .hero-content {
+            max-width: 700px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease forwards 0.3s;
+        }
+
+        .hero .subtitle {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease forwards 0.5s;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease forwards 0.7s;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s ease forwards 0.9s;
+        }
+
+        .hero-btns button {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .primary-btn {
+            background: var(--gradient);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(108, 99, 255, 0.25);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .secondary-btn:hover {
+            background: rgba(108, 99, 255, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .hero-bg {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, rgba(108, 99, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: 1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Events Section */
+        .events-section {
+            padding: 6rem 5%;
+            background-color: var(--light-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .section-title span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .title-decoration {
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: var(--gradient-accent);
+            margin: 1rem auto 0;
+            border-radius: 3px;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            cursor: pointer;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .event-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            border-color: rgba(108, 99, 255, 0.2);
+        }
+
+        .event-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .event-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .event-card:hover .event-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .event-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .event-details {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .event-details ul {
+            margin-top: 1.2rem;
+            padding-left: 1.2rem;
+        }
+
+        .event-details li {
+            margin-bottom: 0.6rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .event-details li:hover {
+            transform: translateX(5px);
+            color: var(--primary);
+        }
+
+        .event-footer {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .participants {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .participants i {
+            color: var(--accent);
+        }
+
+        .event-btn {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .event-btn:hover {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Registration Banner - Updated for QR Code */
+        .registration-banner {
+            background: var(--gradient);
+            padding: 5rem 5%;
+            margin: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .registration-banner h2 {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .registration-banner p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .registration-options {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .qr-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .qr-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .qr-code-container {
+            background: white;
+            padding: 1rem;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .qr-code-placeholder {
+            width: 200px;
+            height: 200px;
+            background: #f5f7ff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--primary);
+            margin: 0 auto;
+        }
+
+        .qr-code-placeholder i {
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.5;
+        }
+
+        .qr-section p {
+            color: var(--dark);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .qr-section small {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .banner-btn {
+            background: white;
+            color: var(--primary);
+            padding: 1.2rem 3rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .banner-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .link-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .registration-link {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 2.5rem;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .registration-link a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            word-break: break-all;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .registration-link a:hover {
+            color: var(--accent);
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .copy-btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-column p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column ul a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(-50%) translateX(0);
+            }
+            50% {
+                transform: translateY(-55%) translateX(10px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 700px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(30px) scale(0.95);
+            transition: transform 0.5s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0) scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: transparent;
+            border: none;
+            color: var(--gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            .hero-bg {
+                width: 400px;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .registration-options {
+                flex-direction: column;
+            }
+            
+            .qr-section {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 5%;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 100px;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero-bg {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                margin-top: 3rem;
+                width: 300px;
+                height: 300px;
+            }
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+                background: transparent;
+                border: none;
+                color: var(--dark);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .registration-banner h2 {
+                font-size: 2.2rem;
+            }
+            .qr-code-placeholder {
+                width: 150px;
+                height: 150px;
+            }
+            .qr-code-placeholder i {
+                font-size: 2rem;
+            }
+        }
+
+        .mobile-menu-btn {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                display: none;
+            }
+            nav ul.active {
+                display: flex;
+            }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+            display: none;
+        }
+
+        .toast.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">
+            <i class="fas fa-rocket"></i> TechFrontiers 2026
+        </a>
+        
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#register">Register</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <button class="register-btn" onclick="openRegistrationModal()">Register Now</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>TechFrontiers 2026</h1>
+            <div class="subtitle">An Intercollege Technical Meet</div>
+            <p>Embark on a journey through innovation, creativity, and cutting-edge technology. Join the most anticipated technical symposium of the year featuring 10 exciting events across multiple domains.</p>
+            <div class="hero-btns">
+                <button class="primary-btn" onclick="scrollToEvents()">Explore Events</button>
+                <button class="secondary-btn" onclick="showSchedule()">View Schedule</button>
+            </div>
+        </div>
+        <div class="hero-bg"></div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events-section" id="events">
+        <div class="container">
+            <h2 class="section-title">Event <span>Categories</span></h2>
+            <div class="title-decoration"></div>
+            <div class="events-grid">
+                <!-- Event 1: PROMPT-CRAFT -->
+                <div class="event-card" data-event="1">
+                    <div class="event-icon">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <h3>PROMPT-CRAFT</h3>
+                    <div class="event-details">
+                        <p>AI Prompt Generating Quest</p>
+                        <ul>
+                            <li>Follow Language Standards</li>
+                            <li>Handle Constraints</li>
+                            <li>Test with Sample Inputs</li>
+                            <li>Follow I/O Rules Strictly</li>
+                            <li>Max 100 words per prompt</li>
+                            <li>Preliminary & Final Rounds</li>
+                        </ul>
+                    </div>
+                    <div class="event-footer">
+                        <div class="participants">
+                            <i class="fas fa-users"></i> 3 per class
+                        </div>
+                        <button class="event-btn" onclick="openEventModal(1)">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Event 2: TRADITIONAL HUKERANK CODING -->
+                <div class="event-card" data-event="2">
+                    <div class="event-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>TRADITIONAL HUKERANK CODING</h3>
+                    <div class="event-details">
+                        <p>Coding Generation Challenge</p>
+                        <ul>
+                            <li>Problem Statement & Constraints</li>
+                            <li>Strict Input/Output Format</li>
+                            <li>Clean Solution Code</li>
+                            <li>Comprehensive Testing</li>
+                            <li>Algorithmic Problem Solving</li>
+                            <li>Time-bound Competition</li>
+                        </ul>
+                    </div>
+                    <div class="event-footer">
+                        <div class="participants">
+                            <i class="fas fa-users"></i> 5 per class
+                        </div>
+                        <button class="event-btn" onclick="openEventModal(2)">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Event 3: DEBUGQUEST -->
+                <div class="event-card" data-event="3">
+                    <div class="event-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3>DEBUGQUEST</h3>
+                    <div class="event-details">
+                        <p>Code Debugging Challenge</p>
+                        <ul>
+                            <li>Python Code with Errors</li>
+                            <li>Find Common Bugs</li>
+                            <li>Check Complexity Issues</li>
+                            <li>Clean & Optimize Code</li>
+                            <li>Debugging Techniques</li>
+                            <li>Efficiency Evaluation</li>
+                        </ul>
+                    </div>
+                    <div class="event-footer">
+                        <div class="participants">
+                            <i class="fas fa-users"></i> 5 per class
+                        </div>
+                        <button class="event-btn" onclick="openEventModal(3)">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Event 4: Neuro-Play -->
+                <div class="event-card" data-event="4">
+                    <div class="event-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Neuro-Play</h3>
+                    <div class="event-details">
+                        <p>AI Simulation Online Games</p>
+                        <ul>
+                            <li>Free Fire Game Environment</li>
+                            <li>AI Game Mechanics</li>
+                            <li>Turn-based Gameplay</li>
+                            <li>Time Constraints</li>
+                            <li>Transparent Scoring</li>
+                            <li>Strategic Gameplay</li>
+                        </ul>
+                    </div>
+                    <div class="event-footer">
+                        <div class="participants">
+                            <i class="fas fa-users"></i> 5 per class
+                        </div>
+                        <button class="event-btn" onclick="openEventModal(4)">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Event 5: AniMate with AI -->
+                <div class="event-card" data-event="5">
+                    <div class="event-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AniMate with AI</h3>
+                    <div class="event-details">
+                        <p>Animation Creation with AI Tools</p>
+                        <ul>
+                            <li>Choose Game Idea</li>
+                            <li>Set the Stage</li>
+                            <li>Movement Controls</li>
+                            <li>Game Logic Design</li>
+                            <li>Scoring System</li>
+                            <li>AI Tool Integration</li>
+                        </ul>
+                    </div>
+                    <div class="event-footer">
+                        <div class="participants">
+                            <i class="fas fa-users"></i> Team Event
+                        </div>
+                        <button class="event-btn" onclick="openEventModal(5)">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Event 6: BEAT THE FEET -->
+                <div class="event-card" data-event="6">
+                    <div class="event-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>BEAT THE FEET</h3>
+                    <div class="event-details">
+                        <p>CS Theme Dance Competition</p>
+                        <ul>
+                            <li>Tech-inspired Choreography</li>
+                            <li>Group Size: 4-5 Members</li>
+                            <li>One Team per Class</li>
+                            <li>Time Limit: 3-4 Minutes</li>
+                            <li>Creative Expression</li>
+                            <li>Technical Theme Integration</li>
+                        </ul>
+                    </div>
+                    <div class="event-footer">
+                        <div class="participants">
+                            <i class="fas fa-users"></i> 4-5 per team
+                        </div>
+                        <button class="event-btn" onclick="openEventModal(6)">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Event 7: TECHNOLINK -->
+                <div class="event-card" data-event="7">
+                    <div class="event-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>TECHNOLINK</h3>
+                    <div class="event-details">
+                        <p>Connection Game - Quiz</p>
+                        <ul>
+                            <li>Technical Clues & Hints</li>
+                            <li>Connect to Form Terms</li>
+                            <li>Max 3 Members per Team</li>
+                            <li>Preliminary & Final Rounds</li>
+                            <li>Time-bound Responses</li>
+                            <li>2 Teams per Class</li>
+                        </ul>
+                    </div>
+                    <div class="event-footer">
+                        <div class="participants">
+                            <i class="fas fa-users"></i> 3 per team
+                        </div>
+                        <button class="event-btn" onclick="openEventModal(7)">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Event 8: UI DESIGNING -->
+                <div class="event-card" data-event="8">
+                    <div class="event-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>UI DESIGNING</h3>
+                    <div class="event-details">
+                        <p>Poster Making Competition</p>
+                        <ul>
+                            <li>Use Web Design Tools</li>
+                            <li>Basic Design Concepts</li>
+                            <li>Two Members per Team</li>
+                            <li>One Team per College</li>
+                            <li>Time-limited Creation</li>
+                            <li>Creative Visual Design</li>
+                        </ul>
+                    </div>
+                    <div class="event-footer">
+                        <div class="participants">
+                            <i class="fas fa-users"></i> 2 per team
+                        </div>
+                        <button class="event-btn" onclick="openEventModal(8)">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Event 9: Idea Submission -->
+                <div class="event-card" data-event="9">
+                    <div class="event-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Idea Submission</h3>
+                    <div class="event-details">
+                        <p>Idea Presentation</p>
+                        <ul>
+                            <li>PPT or Prototype</li>
+                            <li>New Innovative Ideas</li>
+                            <li>Two Members per Team</li>
+                            <li>One Team per College</li>
+                            <li>Problem-Solving Focus</li>
+                            <li>Practical Implementation</li>
+                        </ul>
+                    </div>
+                    <div class="event-footer">
+                        <div class="participants">
+                            <i class="fas fa-users"></i> 2 per team
+                        </div>
+                        <button class="event-btn" onclick="openEventModal(9)">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Event 10: Meme Creation -->
+                <div class="event-card" data-event="10">
+                    <div class="event-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Meme Creation</h3>
+                    <div class="event-details">
+                        <p>Advertising in Just a Minute</p>
+                        <ul>
+                            <li>On-Spot Video Creation</li>
+                            <li>Given Topic</li>
+                            <li>College Premises Only</li>
+                            <li>One Team per College</li>
+                            <li>Max 5 Members</li>
+                            <li>Creative Advertising</li>
+                        </ul>
+                    </div>
+                    <div class="event-footer">
+                        <div class="participants">
+                            <i class="fas fa-users"></i> Up to 5
+                        </div>
+                        <button class="event-btn" onclick="openEventModal(10)">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Banner - UPDATED WITH QR CODE -->
+    <section class="registration-banner" id="register">
+        <div class="banner-content">
+            <h2>Register for TechFrontiers 2026</h2>
+            <p>Don't miss this opportunity to showcase your skills, learn from peers, and compete in the most exciting technical events of the year. Limited slots available!</p>
+            
+            <div class="registration-options">
+                <!-- QR Code Section - NOW USING ACTUAL IMAGE -->
+                <div class="qr-section">
+                    <div class="qr-code-container">
+                        <!-- Replace this image src with your actual QR code image URL -->
+                        <img src="qr-code-https---docs-google-com-forms-d-e-1FAIpQLSegOCLWWB.png" 
+                             alt="TechFrontiers 2026 Registration QR Code" 
+                             style="width: 200px; height: 200px; border-radius: 10px;">
+                    </div>
+                    <p>Scan to Register</p>
+                    <small>Use your phone's camera to scan</small>
+                </div>
+
+                <!-- OR Divider -->
+                <div style="color: white; font-weight: 600;">OR</div>
+
+                <!-- Link Section -->
+                <div class="link-section">
+                    <div class="registration-link">
+                        <a href="https://acesse.one/R9kwH" id="registrationLink" target="_blank">
+                            <i class="fas fa-link"></i>
+                            <span>https://acesse.one/R9kwH</span>
+                        </a>
+                    </div>
+                    
+                    <button class="banner-btn" onclick="openRegistrationLink()">
+                        <i class="fas fa-external-link-alt"></i> Open Registration Page
+                    </button>
+                    
+                    <button class="copy-btn" onclick="copyRegistrationLink()">
+                        <i class="far fa-copy"></i> Copy Registration Link
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TechFrontiers 2026</h3>
+                    <p>An Intercollege Technical Meet bringing together the brightest minds in technology, innovation, and creativity.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#events">All Events</a></li>
+                        <li><a href="#register">Registration</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Computer Science Department</li>
+                        <li><i class="fas fa-envelope"></i> contact@techfrontiers2026.edu</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-calendar"></i> March 15-16, 2026</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 TechFrontiers. All rights reserved. | An Intercollege Technical Meet</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Event Details Modal -->
+    <div class="modal" id="eventModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h2 id="modalTitle">Event Title</h2>
+            <div id="modalDetails">
+                <!-- Event details loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        Link copied to clipboard!
+    </div>
+
+    <script>
+        // Configuration - REPLACE THESE WITH YOUR ACTUAL LINKS AND QR CODE
+        const REGISTRATION_LINK = "https://acesse.one/R9kwH"; // Your actual registration link
+        const QR_CODE_IMAGE_URL = "https://drive.google.com/uc?export=view&id=1CxTuT6I3QPcyM6UKABu-rYD_Fz0XZqcU"; // Your QR code image URL
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set the registration link
+            const registrationLinkElement = document.getElementById('registrationLink');
+            const registrationLinkSpan = registrationLinkElement.querySelector('span');
+            registrationLinkElement.href = REGISTRATION_LINK;
+            registrationLinkSpan.textContent = REGISTRATION_LINK;
+            
+            // Animate elements on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Observe elements
+            document.querySelectorAll('.section-title, .event-card').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navUl = document.querySelector('nav ul');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                navUl.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navUl.classList.remove('active');
+                });
+            });
+        });
+
+        // Event data for modal
+        const eventData = {
+            1: {
+                title: "PROMPT-CRAFT",
+                details: `
+                    <h3>Prompt Generating Quest</h3>
+                    <p><strong>Faculty Incharge:</strong> ______________</p>
+                    <ul>
+                        <li>Follow Language Standards</li>
+                        <li>Handle Constraints</li>
+                        <li>Test with Sample Inputs</li>
+                        <li>Follow Input/output Rules Strictly</li>
+                        <li>Participants must create prompts related to AI, CS, Problem Solving, or Creative Applications</li>
+                        <li>Prompts should be original, clear, and purposeful</li>
+                        <li>Prompts must be written in English</li>
+                        <li>Prompts should not exceed 100 words</li>
+                        <li>Preliminary Round: Written prompt submission</li>
+                        <li>Final Round: Live demonstration with AI tool</li>
+                        <li>Maximum 3 students per class</li>
+                    </ul>
+                `
+            },
+            2: {
+                title: "TRADITIONAL HUKERANK CODING",
+                details: `
+                    <h3>Coding Generation</h3>
+                    <p><strong>Faculty Incharge:</strong> _________</p>
+                    <ul>
+                        <li>Problem Statement (Prompt)</li>
+                        <li>Input Format</li>
+                        <li>Output Format</li>
+                        <li>Constraints</li>
+                        <li>Solution Code (Clean + Strict I/O)</li>
+                        <li>Testing</li>
+                        <li>Maximum 5 participants per class</li>
+                    </ul>
+                `
+            },
+            3: {
+                title: "DEBUGQUEST",
+                details: `
+                    <h3>Code Debugging</h3>
+                    <p><strong>Faculty Incharge:</strong> ___________</p>
+                    <ul>
+                        <li>Coding will be given with errors</li>
+                        <li>Python coding will be given</li>
+                        <li>Look for Common Bugs</li>
+                        <li>Check Complexity</li>
+                        <li>Final Step: Clean Code</li>
+                        <li>Maximum 5 participants per class</li>
+                    </ul>
+                `
+            },
+            4: {
+                title: "Neuro-Play",
+                details: `
+                    <h3>AI SIMULATION ONLINE GAMES – Free Fire Game</h3>
+                    <p><strong>Faculty Incharge:</strong> ____________</p>
+                    <ul>
+                        <li>AI Game Environment</li>
+                        <li>Turns and Time</li>
+                        <li>Constraints</li>
+                        <li>Transparency</li>
+                        <li>Maximum 5 participants per class</li>
+                    </ul>
+                `
+            },
+            5: {
+                title: "AniMate with AI",
+                details: `
+                    <h3>ANIMATION CREATION USING AI TOOLS - Photography</h3>
+                    <p><strong>Faculty Incharge:</strong> _______________</p>
+                    <ul>
+                        <li>Choose a Game idea</li>
+                        <li>Set the Stage</li>
+                        <li>Movement controls</li>
+                        <li>Game Logic</li>
+                        <li>Scoring system</li>
+                    </ul>
+                `
+            },
+            6: {
+                title: "BEAT THE FEET",
+                details: `
+                    <h3>CS Theme DANCE COMPETITION</h3>
+                    <p><strong>Faculty Incharge:</strong> _____________</p>
+                    <ul>
+                        <li>Maximize group size : 4 to 5</li>
+                        <li>One team per class</li>
+                        <li>Time Limit : 3 to 4 Mins.</li>
+                    </ul>
+                `
+            },
+            7: {
+                title: "TECHNOLINK",
+                details: `
+                    <h3>CONNECTION GAME - QUIZ</h3>
+                    <p><strong>Faculty Incharge:</strong> _______________</p>
+                    <ul>
+                        <li>Maximum 3 members per team.</li>
+                        <li>2 teams per class</li>
+                        <li>Preliminary round will be conducted</li>
+                        <li>For final round 5 teams will be selected</li>
+                        <li>Each round will display clues, pictures, or hints to form technical terms</li>
+                        <li>Teams must respond within time limit</li>
+                    </ul>
+                `
+            },
+            8: {
+                title: "UI DESIGNING",
+                details: `
+                    <h3>Poster Making</h3>
+                    <p><strong>Faculty Incharge:</strong> _______________</p>
+                    <ul>
+                        <li>Use any web designing tool</li>
+                        <li>Two members per team</li>
+                        <li>One team per college</li>
+                        <li>Teams must respond within time limit</li>
+                    </ul>
+                `
+            },
+            9: {
+                title: "Idea Submission",
+                details: `
+                    <h3>Idea Presentation – PPT or Prototype</h3>
+                    <p><strong>Faculty Incharge:</strong> _______________</p>
+                    <ul>
+                        <li>Two members per team</li>
+                        <li>One Team per college</li>
+                        <li>Should come with new innovative ideas</li>
+                    </ul>
+                `
+            },
+            10: {
+                title: "Meme Creation",
+                details: `
+                    <h3>Advertising in Just a Minute</h3>
+                    <ul>
+                        <li>Video making in college premises</li>
+                        <li>On Spot Topic will be given</li>
+                        <li>One Team per college</li>
+                        <li>Team should not contain more than 5 members</li>
+                    </ul>
+                `
+            }
+        };
+
+        // Registration Functions
+        function openRegistrationLink() {
+            window.open(REGISTRATION_LINK, '_blank');
+        }
+
+        function copyRegistrationLink() {
+            navigator.clipboard.writeText(REGISTRATION_LINK)
+                .then(() => {
+                    showToast('Registration link copied to clipboard!');
+                })
+                .catch(err => {
+                    console.error('Failed to copy: ', err);
+                    // Fallback method
+                    const textArea = document.createElement('textarea');
+                    textArea.value = REGISTRATION_LINK;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    showToast('Registration link copied to clipboard!');
+                });
+        }
+
+        function openRegistrationModal() {
+            // Scroll to registration section
+            document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Toast notification function
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Modal functions
+        function openEventModal(eventId) {
+            const event = eventData[eventId];
+            document.getElementById('modalTitle').textContent = event.title;
+            document.getElementById('modalDetails').innerHTML = event.details;
+            document.getElementById('eventModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            // Add animation class
+            setTimeout(() => {
+                document.querySelector('.modal-content').classList.add('active');
+            }, 10);
+        }
+
+        function closeModal() {
+            document.querySelector('.modal-content').classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('eventModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('eventModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('eventModal').style.display === 'flex') {
+                closeModal();
+            }
+        });
+
+        // Navigation functions
+        function scrollToEvents() {
+            document.getElementById('events').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showSchedule() {
+            document.getElementById('modalTitle').textContent = 'Event Schedule';
+            document.getElementById('modalDetails').innerHTML = `
+                <h3>TechFrontiers 2026 Schedule</h3>
+                <p><strong>Date:</strong> March 15-16, 2026</p>
+                <p><strong>Venue:</strong> Main Auditorium & CS Department Labs</p>
+                <br>
+                <h4>Day 1 - March 15, 2026</h4>
+                <ul>
+                    <li>09:00 AM - Inauguration Ceremony</li>
+                    <li>10:30 AM - PROMPT-CRAFT Preliminary</li>
+                    <li>11:30 AM - DEBUGQUEST Round 1</li>
+                    <li>02:00 PM - UI DESIGNING Competition</li>
+                    <li>04:00 PM - TECHNOLINK Preliminary</li>
+                </ul>
+                <br>
+                <h4>Day 2 - March 16, 2026</h4>
+                <ul>
+                    <li>09:30 AM - TRADITIONAL HUKERANK CODING</li>
+                    <li>11:00 AM - Neuro-Play Tournament</li>
+                    <li>01:30 PM - AniMate with AI Showcase</li>
+                    <li>03:00 PM - BEAT THE FEET Performance</li>
+                    <li>04:30 PM - Idea Submission & Meme Creation</li>
+                    <li>06:00 PM - Prize Distribution & Closing</li>
+                </ul>
+            `;
+            document.getElementById('eventModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            setTimeout(() => {
+                document.querySelector('.modal-content').classList.add('active');
+            }, 10);
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '1rem 5%';
+                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '1.5rem 5%';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
